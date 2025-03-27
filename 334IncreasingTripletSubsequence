@@ -1,0 +1,22 @@
+class Solution:
+    def increasingTriplet(self, nums: List[int]) -> bool:
+        # Edge case: If less than 3 elements, we can't form a triplet
+        if len(nums) < 3:
+            return False
+        
+        # Initialize two variables to represent the smallest and second smallest values
+        start = float('inf')
+        mid = float('inf')
+        
+        for num in nums:
+            if num <= start:
+                # This number becomes the new smallest (start)
+                start = num
+            elif num <= mid:
+                # This number becomes the new second smallest (mid)
+                mid = num
+            else:
+                # We found a number larger than both start and mid
+                return True
+        
+        return False
