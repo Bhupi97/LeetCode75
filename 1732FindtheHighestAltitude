@@ -1,0 +1,9 @@
+class Solution:
+    def largestAltitude(self, gain: List[int]) -> int:
+        highest = 0
+        netGain = 0
+        for i in range(len(gain)):
+            netGain += gain[i]
+            if netGain > highest:
+                highest = netGain
+        return highest
